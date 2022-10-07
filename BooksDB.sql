@@ -11,7 +11,7 @@ where bk.Izd like '%Питер%' or bk.Izd like '%BHV%';
 select * from booksSQL.dbo.books as bk
 where bk.Pages between 200 and 600
 
---Отобразить все книги, имена издательств которых лежат в диапазоне от буквы В до О. Отсортировать по возрастанию ( по издательствам)
+--Отобразить все книги, имена издательств которых, лежат в диапазоне от буквы В до О. Отсортировать по возрастанию ( по издательствам)
 select * from booksSQL.dbo.books as bk
 where bk.Izd like N'[В-О]%'
 order by bk.Izd asc;
@@ -50,23 +50,23 @@ select * from booksSQL.dbo.books as bk where bk.Izd not like '%BHV%' and bk.[Nam
 select * from booksSQL.dbo.books as bk where (bk.Themes like '%Программирование%' or bk.Category like '%Web%') 
 and (bk.Izd like '%BHV%' or bk.Izd like '%Бином%')
 
---Отобразить книги которые являются справочниками или руководством
+--Отобразить книги, которые являются справочниками или руководством
 
 select * from booksSQL.dbo.books as bk where bk.Category like N'%Справочник%' or bk.Category like N'%Руководство%';
 
---Отобразить книги названия которых начинаются на английскую букву
+--Отобразить книги, названия которых начинаются на английскую букву
 
 select * from booksSQL.dbo.books as bk where bk.[Name] like '[A-Z]%';
 
---Отобразить книги названия которых заканчиваются на русскую букву
+--Отобразить книги, названия которых заканчиваются на русскую букву
 
 select * from booksSQL.dbo.books as bk where bk.[Name] like N'%[А-Я]';
 
---Отобразить книги в названиях издательств которых ровно три символа
+--Отобразить книги, в названиях издательств которых ровно три символа
 
 select * from booksSQL.dbo.books as bk where bk.Izd like '___';
 
---Отобразить книги по программированию за исключением книг по Паскаль и Дэлфи
+--Отобразить книги, по программированию за исключением книг по Паскаль и Дэлфи
 
 select * from booksSQL.dbo.books as bk where (bk.Category not like '%Pascal%' and bk.Category not like '%Delphi%') 
 and bk.Themes like '%Программирование%'
@@ -92,6 +92,6 @@ where Izd = 'APAYEV';
 select * from booksSQL.dbo.books as bk where bk.Pages is NULL;
 
 
---Удалить книги которые были изданы до 2000 года за исключением издательства Питер.
+--Удалить книги, которые были изданы до 2000 года за исключением издательства Питер.
 delete from booksSQL.dbo.books 
 where (books.Date) < '2000-01-01' and books.Izd not like '%Питер%';
